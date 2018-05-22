@@ -3,7 +3,8 @@ fs.readFileSync('spam.csv')
     .toString()
     .split(/\r?\n/)
     .forEach(line => {
+        let category = line.split(',')[0];
         line = line.split(' ').forEach(word => {
-            word.toLowerCase().replace(/[^\w\s]/gi, '');
+            console.log(word.toLowerCase().replace(/spam|ham|[^A-Z]+/ig, '').replace(/\s+/, ''));
         });
     });
