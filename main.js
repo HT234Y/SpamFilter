@@ -4,15 +4,13 @@ fs.readFileSync('spam.csv')
     .split(/\r?\n/)
     .forEach(line => {
         let category = line.split(',')[0];
-        line.substring(category.length + 1)
-            .toLowerCase()
+        let text = line.substring(category.length + 1).toLowerCase();
+        let words = text
             .replace(/[^A-Z' ]+/ig, ' ')
-            .replace(/\s\s+/g, ' ')
             .trim()
-            .split(' ')
-            .forEach(word => console.log(word))
+            .split(/\s+/);
         
-            
+        console.log(words);    
     });
 
 //callsminmoremobsemspoboxpowa
